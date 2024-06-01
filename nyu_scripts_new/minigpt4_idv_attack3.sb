@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#SBATCH --job-name=Jailbreak
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=5
+#SBATCH --time=48:00:00
+#SBATCH --mem=60GB
+#SBATCH --gres=gpu:rtx8000:1
+
+module purge
+cd /scratch/zx1673/codes/jailbreak_proj/Visual-Adversarial-Examples-Jailbreak-Large-Language-Models/nyu_scripts
+
+
+singularity exec --nv \
+            --overlay /scratch/zx1673/myconda/my_pytorch.ext3:ro /scratch/work/public/singularity/cuda11.6.124-cudnn8.4.0.27-devel-ubuntu20.04.4.sif \
+            /bin/bash -c 'source /ext3/env.sh; conda activate minigpt4; sh minigpt4_idv_attack3.sh'

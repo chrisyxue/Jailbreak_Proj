@@ -1,0 +1,13 @@
+# Install packages
+pip install accelerate==0.16.0
+pip install omegaconf==2.3.0
+pip install iopath==0.1.10
+pip install timm==0.6.13
+pip install decord==0.6.0
+pip install 
+
+1. modify the cache_path variables in /scratch/zx1673/codes/jailbreak_proj/Visual-Adversarial-Examples-Jailbreak-Large-Language-Models/minigpt4/models/blip2.py and /scratch/zx1673/codes/jailbreak_proj/Visual-Adversarial-Examples-Jailbreak-Large-Language-Models/minigpt4/models/eva_vit.py
+2. modify the checkpoint in /scratch/zx1673/codes/jailbreak_proj/Visual-Adversarial-Examples-Jailbreak-Large-Language-Models/metric/detoxify.py
+3. 
+
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#SBATCH --job-name=Jailbreak
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=5
+#SBATCH --time=30:00:00
+#SBATCH --mem=60GB
+#SBATCH --gres=gpu:rtx8000:1
+
+module purge
+cd /scratch/zx1673/codes/jailbreak_proj/Visual-Adversarial-Examples-Jailbreak-Large-Language-Models/nyu_scripts_new
+
+
+singularity exec --nv \
+            --overlay /scratch/zx1673/pytorch_example/overlay-25GB-500K.ext3 /scratch/work/public/singularity/cuda11.6.124-cudnn8.4.0.27-devel-ubuntu20.04.4.sif \
+            /bin/bash -c 'source /ext3/env.sh; conda activate minigpt4; sh eval_given_image.sh'
